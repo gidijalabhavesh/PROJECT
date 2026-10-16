@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f4ef">
+  <meta name="description" content="Review suspicious banking and payment messages for common fraud signals.">
+  <title>BankScam Sentinel | Message review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Sentinel home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="brand-name">SENTINEL<span class="brand-region"> / INDIA</span></span>
+      </a>
+      <div class="topbar-meta"><span class="live-dot"></span><span>MESSAGE REVIEW</span><span class="meta-divider">/</span><span>RULE-BASED SCREENING</span></div>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow"><span>01</span> DIGITAL SAFETY DESK</p>
+        <h1 id="page-title">Check before<br><span>you act.</span></h1>
+        <p class="intro-note">A suspicious message is worth a second look.</p>
+      </section>
+
+      <section class="workspace" aria-label="Message analysis">
+        <form class="review-form" id="review-form">
+          <div class="section-heading">
+            <div><p class="eyebrow">MESSAGE INTAKE</p><h2>What did you receive?</h2></div>
+            <span class="step-number">01 / 02</span>
+          </div>
+          <label class="field-label" for="sender">SENDER <span>OPTIONAL</span></label>
+          <input id="sender" name="sender" type="text" maxlength="200" placeholder="Phone number or sender ID" autocomplete="off">
+          <div class="message-label-row">
+            <label class="field-label" for="message">MESSAGE</label>
+            <span class="counter" id="counter">0 / 10,000</span>
+          </div>
+          <textarea id="message" name="message" maxlength="10000" required placeholder="Paste the SMS, email, or payment request"></textarea>
+          <div class="form-footer">
+            <button class="text-button" type="button" id="clear-button">Clear</button>
+            <button class="analyze-button" type="submit"><span>Analyze message</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+          </div>
+          <div class="samples">
+            <span class="samples-label">TRY A SAMPLE</span>
+            <button type="button" class="sample-button" data-sample="kyc">KYC link</button>
+            <button type="button" class="sample-button" data-sample="upi">UPI refund</button>
+            <button type="button" class="sample-button" data-sample="bank">Bank alert</button>
+          </div>
+        </form>
+
+        <section class="report" id="report" aria-live="polite" aria-busy="false">
+          <div class="report-topline"><p class="eyebrow">ASSESSMENT</p><span class="report-id" id="report-id">READY</span></div>
+          <div class="empty-state" id="empty-state">
+            <div class="empty-symbol" aria-hidden="true"><span></span><span></span><span></span></div>
+            <p class="empty-title">No message reviewed</p>
+            <p class="empty-copy">Your assessment will appear here.</p>
+          </div>
+          <div class="result-content" id="result-content" hidden></div>
+        </section>
+      </section>
+
+      <footer class="page-footer">
+        <p>Sentinel uses local security rules. A result is guidance, not proof of authenticity.</p>
+        <a href="https://cybercrime.gov.in" target="_blank" rel="noreferrer">REPORT CYBER FRAUD <span aria-hidden="true">↗</span></a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
